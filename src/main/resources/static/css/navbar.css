@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Shippori+Antique&display=swap');
+:root {
+    --orange: #f69065;
+    --darkBlue: #171F2A;
+    --grey: #E6E6E6;
+}
+.navbar {
+    background-color: var(--orange) !important;
+    font-family: 'Shippori Antique', sans-serif;
+
+}   
+
+
+.nav-link:hover {
+    color: var(--orange) !important;
+    background-color: white !important;
+    border-radius: 5px;
+}
+
+.navbar-brand {
+    color: white !important;
+    margin-left: 1%;
+    font-family: 'Shippori Antique', sans-serif;
+}
+
+.vistas {
+    background-color: #dbd9d7 !important;
+    color: rgb(73, 73, 73) !important;
+}
+
+

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/53584266fb.js" crossorigin="anonymous"></script>
+  <title>EGGSPENSAS</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/modal.css" />
+  <link rel="shortcut icon" href="https://d1q4kshf6f0axi.cloudfront.net/img/skills/version-3/en-13.svg">
+</head>
+<body>
+  <section class="main-section">
+    <div id="app" v-cloaks>
+      <navbar :backBtn="true" :backBtnRef="'verEdificios.html'" class="navbar"></navbar>
+    </div>
+    <h1 style="margin-left: 850px; margin-top: 20px; margin-bottom: 20px;">Totales por departamento</h1>
+    <div class="container">
+      <div th:if="${error} != null" class="card text-white bg-danger mb-3" >
+        <div class="card-body">
+          <h5 class="card-title">ERROR</h5>
+          <p class="card-text" th:text="${error}"></p>
+        </div>
+      </div>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Periodo</th>
+            <th>Departamento</th>
+            <th>Total a pagar</th>
+            <th>Porcentaje</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:if="${liquidacion.total} != null" th:each="departamento : ${departamentos}">
+            <td th:text="${liquidacion.mes} + ' ' + ${liquidacion.anio}"></td>
+            <td th:text="${departamento.piso}+${departamento.dpto}"></td>
+            <td th:text="'$' + ${#numbers.formatDecimal(((liquidacion.total + 0.0) * departamento.porcentajeParticipacion) / 100, 1, 2)}"></td>
+            <td th:text="${departamento.porcentajeParticipacion} + '%'"></td>
+          </tr>
+        </tbody>
+      </table>
+      <button id="back-btn" class="btn btn-secondary"><a href="/edificios/ver">Volver</a></button>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="/js/VueApp.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"></script>
+  </section>
+  <footer>
+    <div class="footer-background">
+      <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center">
+        <p class="h6">© ALL RIGHTS RESERVED - EGGSPENSAS</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

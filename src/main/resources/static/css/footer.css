@@ -1,0 +1,30 @@
+
+:root {
+    --orange: #f69065;
+    --darkBlue: #171F2A;
+    
+    }
+   
+   
+   /* Footer */
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+.footer-background {
+    
+    background-image: url("/img/BUILDINGS.png");
+    background-position: center center;
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+    background-color:transparent; 
+    padding: 8rem 0 0.5rem 0;
+    color:var(--orange);
+    
+}
+
+html, body{
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+
